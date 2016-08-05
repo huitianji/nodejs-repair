@@ -38,7 +38,21 @@ fs.mkdirP('1/2',function(err){
 
 
 
-fs.rmdirP = function(dir){
+fs.rmdirP = function(path){
+
+    var files = [];
+    if(fs.existsSync(path)){
+        files = fs.readdirSync(path);
+        files.forEach(function(file,index){
+            var curPath = path + "/" + file;
+            if(fs.lstatSync(curPath).isDirectory()){
+                fs.rmdirSync(curPath)
+            }else{
+                fs.unlinkSync(curPath);
+            }
+        });
+
+    }
 
 }
 
