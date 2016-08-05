@@ -56,4 +56,4 @@ fs.rmdirP = function(path){
 
 }
 
-fs.rmdirP("1")
+fs.rmdirP("1");
