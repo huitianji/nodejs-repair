@@ -57,3 +57,45 @@ fs.rmdirP = function(path){
 }
 
 fs.rmdirP("1");
+
+
+//-------------------------
+//stat--->看一个文件的状态
+/*
+* size: 25, 文件的大小
+* atime: 2016-08-04T09:35:39.878Z,   最后的访问时间
+ mtime: 2016-08-04T09:35:39.878Z,    最后的修改时候
+ ctime: 2016-08-04T09:35:39.881Z,     最后的创建时间
+ birthtime:                           出生时间
+* */
+fs.stat('./read.me',function(err,stats){
+    console.log(stats);
+    console.log(stats.isDirectory());//判断是不是目录
+    console.log(stats.isFile());//是不是文件
+});
+//判断文件是否存在
+fs.exists("./read.me",function(exists){
+    console.log(exists);
+})
+//取得文件的绝对路径
+fs.realpath('./read.me',function(err,path){
+    console.log(path)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
